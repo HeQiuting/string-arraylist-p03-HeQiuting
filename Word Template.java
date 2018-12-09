@@ -13,6 +13,7 @@ public class Word{
      */
     public static String scrambleWord(String word)
     {
+        /* part (a) */
         String tmp = "";
         for(int i = 0; i < word.length()-1; i++){
             String a = word.substring(i, i+1);
@@ -42,7 +43,14 @@ public class Word{
      */
     public static void scrambleOrRemove(List<String> wordList){
         /* part (b) */
-        
+        for(int i = 0; i < wordList.size(); i++){
+            if(scrambleWord(wordList.get(i)).equals(wordList.get(i))){
+                wordList.remove(i);
+                i--;
+            }
+            else{
+                wordList.set(i, scrambleWord(wordList.get(i)));
+            }
     }
 
     public static void main(String[] args)
